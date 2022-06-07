@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Book Shop</title>
+  </head>
+  <body onload="onInit()">
+    <h1>Book Shop</h1>
+
+    <section class="books-container">
+      <button class="next-btn" onclick="onAddBook(event)">Add</button>
+
+      <table class="books-table">
+        <thead>
+          <th>id</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Image</th>
+          <th colspan="3">Action</th>
+        </thead>
+        <tbody class="books-body"></tbody>
+      </table>
+    </section>
+    <button class="next-btn" onclick="onNextPage()">Next</button>
+    <div class="modal"></div>
+    <div class="user-msg"></div>
+
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+  </body>
+</html>
