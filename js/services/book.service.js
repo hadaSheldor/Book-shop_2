@@ -28,7 +28,6 @@ function _createBook(bookName, bookPrice = getRandomIntInclusive(20, 80)) {
 
 function _createBooks() {
   var books = _loadBooksFromStorage()
-  console.log(books)
   if (!books || !books.length) {
     console.log("build data")
     books = []
@@ -50,15 +49,14 @@ function removeBook(bookId) {
 
 function addBook(bookName, bookPrice) {
   const book = _createBook(bookName, bookPrice)
-  console.log(book)
   gBooks.unshift(book)
-  console.log("gBooks", gBooks)
   _saveBooksToStorage()
   return book
 }
 
 function updateBook(bookId, bookNewPrice) {
-  const book = gBooks.find((book) => book.id === bookId)
+  const book = getBookById(bookId)
+  // const book = gBooks.find((book) => book.id === bookId)
   book.price = bookNewPrice
   _saveBooksToStorage()
   return book
@@ -70,7 +68,7 @@ function getBookById(bookId) {
 }
 
 function _saveBooksToStorage() {
-  saveToStorage(STORAGE_KEY, gBooks)
+  return saveToStorage(STORAGE_KEY, gBooks)
 }
 
 function _loadBooksFromStorage() {
